@@ -1,2 +1,14 @@
-<app-square [value]="'O'"></app-square>
-<router-outlet />
+<div class="game">
+  <h1>Tic Tac Toe</h1>
+  <div class="board">
+    @for (cell of board; track $index) {
+    <div class="cell" (click)="makeMove($index)">
+      {{ cell }}
+    </div>
+    }
+  </div>
+  @if (winner) {
+  <p>{{ winner }} wins!</p>
+  <button (click)="resetGame()">Play Again</button>
+  }
+</div>
